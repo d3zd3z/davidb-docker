@@ -16,6 +16,8 @@ RUN dpkg --add-architecture i386 && \
 # Plus 'wget' needed to follow further instructions.
 # Include xterm.
 # Python needed, but not mentioned.
+# include diffstat,makeinfo,gawk,chrpath,cpio from bitbake
+# requirement.
 RUN apt-get update && \
 	apt-get install -y \
 		git \
@@ -33,7 +35,8 @@ RUN apt-get update && \
 		curl \
 		android-tools-fastboot autoconf bison flex gdisk \
 		netcat python-serial \
-		ccache xterm
+		ccache xterm \
+		diffstat texinfo gawk chrpath cpio
 
 # Apt doesn't seem to be able to install this package together with
 # the above.
