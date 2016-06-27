@@ -24,6 +24,8 @@ MAINTAINER David Brown <david.brown@linaro.org>
 #   cpio
 # The build then fails reporting missing packages:
 #   zlib1g-dev
+# The build of edk, reports this missing.
+#   uuid-dev
 RUN apt-get update && \
 	apt-get install -y \
 		git \
@@ -35,7 +37,8 @@ RUN apt-get update && \
 		gawk \
 		chrpath \
 		cpio \
-		zlib1g-dev
+		zlib1g-dev \
+		uuid-dev
 
 # Apt doesn't seem to be able to install this package together with
 # the above.
