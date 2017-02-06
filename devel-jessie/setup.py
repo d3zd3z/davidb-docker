@@ -1,11 +1,12 @@
 #! /usr/bin/python3
 
+import grp
 import sys
 import os
 import os.path
 import shutil
 
-from subprocess import check_call
+from subprocess import check_call, call
 
 def die(msg):
     print("Unable to run: '{}'".format(msg), file=sys.stderr)
@@ -36,10 +37,13 @@ class State():
 
         os.makedirs(self.home, exist_ok=True)
         os.chown(self.home, self.uid, self.gid)
-        check_call(["groupadd", "-g", str(self.gid), self.user])
+        try:
+            grp.getgrgid(self.gid)
+        except KeyError:
+            check_call(["groupadd", "-g", str(self.gid), self.user])
         check_call(["useradd", "-u", str(self.uid),
             "-g", str(self.gid),
-            "-G", "sudo",
+            "-G", "wheel",
             "-M",
             self.user])
 
