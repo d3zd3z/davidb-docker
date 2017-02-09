@@ -5,6 +5,7 @@ MAINTAINER David Brown <david.brown@linaro.org>
 RUN apt-get update && \
 	apt-get install -y \
 		python3 \
+		tmux \
 		sudo
 
 COPY setup.py /usr/bin/setup.py
