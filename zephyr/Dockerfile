@@ -1,4 +1,4 @@
-FROM davidb/devel:ubuntu-14.04
+FROM davidb/devel:ubuntu-16.04
 MAINTAINER David Brown <david.brown@linaro.org>
 
 # Packages from
@@ -29,10 +29,10 @@ RUN apt-get update && \
 # RUN mkdir -p /opt/cross
 
 RUN \
-	wget https://nexus.zephyrproject.org/content/repositories/releases/org/zephyrproject/zephyr-sdk/0.8-i686/zephyr-sdk-0.8-i686-setup.run && \
-	chmod 755 ./zephyr-sdk-0.8-i686-setup.run && \
-	./zephyr-sdk-0.8-i686-setup.run -- -d /opt/zephyr-sdk -y && \
-	rm zephyr-sdk-0.8-i686-setup.run
+	wget https://nexus.zephyrproject.org/content/repositories/releases/org/zephyrproject/zephyr-sdk/0.9/zephyr-sdk-0.9-setup.run && \
+	chmod 755 ./zephyr-sdk-0.9-setup.run && \
+	./zephyr-sdk-0.9-setup.run -- -d /opt/zephyr-sdk -y && \
+	rm zephyr-sdk-0.9-setup.run
 
 # RUN cd /opt/cross && \
 # 	wget http://releases.linaro.org/14.06/components/toolchain/binaries/gcc-linaro-aarch64-linux-gnu-4.9-2014.06-02_linux.tar.xz && \
