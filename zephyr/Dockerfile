@@ -17,6 +17,8 @@ RUN apt-get update && \
 		g++-multilib \
 		python3-ply \
 		wget \
+		bzip2 \
+		xz-utils \
 		python
 
 # Apt doesn't seem to be able to install this package together with

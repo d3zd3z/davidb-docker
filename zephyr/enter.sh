@@ -13,8 +13,6 @@ container=davidb/zephyr:latest
 
 docker run --rm -ti \
 	-v "$(pwd):$(pwd)" \
-	-v "/mnt/linaro:/mnt/linaro" \
-	-v "/mnt/zephyr:/mnt/zephyr" \
 	-v "$HOME/.bashrc:$HOME/.bashrc" \
 	-v "$HOME/.bash_profile:$HOME/.bash_profile" \
 	-v "$HOME:$HOME" \
@@ -28,3 +26,6 @@ docker run --rm -ti \
 	$container \
 	bash -l \
         "$@"
+
+#	-v "/mnt/linaro:/mnt/linaro" \
+#	-v "/mnt/zephyr:/mnt/zephyr" \
