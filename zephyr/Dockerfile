@@ -19,6 +19,8 @@ RUN apt-get update && \
 		wget \
 		bzip2 \
 		xz-utils \
+		python-yaml \
+		cmake \
 		python
 
 # Apt doesn't seem to be able to install this package together with
