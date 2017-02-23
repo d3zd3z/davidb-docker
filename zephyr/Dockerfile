@@ -21,6 +21,7 @@ RUN apt-get update && \
 		xz-utils \
 		python-yaml \
 		cmake \
+		libncurses5-dev \
 		python
 
 # Apt doesn't seem to be able to install this package together with
