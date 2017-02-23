@@ -43,7 +43,7 @@ class State():
             check_call(["groupadd", "-g", str(self.gid), self.user])
         check_call(["useradd", "-u", str(self.uid),
             "-g", str(self.gid),
-            "-G", "wheel",
+            "-G", "sudo",
             "-M",
             self.user])
 
