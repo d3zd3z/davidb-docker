@@ -44,6 +44,7 @@ class State():
         check_call(["useradd", "-u", str(self.uid),
             "-g", str(self.gid),
             "-G", "sudo",
+            "--home", self.home,
             "-M",
             self.user])
 
