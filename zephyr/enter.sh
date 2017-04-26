@@ -8,6 +8,9 @@
 #
 # You may want to bind your home directory, or at least things like
 # ~/.ssh:~/.ssh:ro
+#
+# We also do a tricky bind with ~/go/bin so that the Linux host sees a
+# different binary directory.
 
 container=davidb/zephyr:latest
 
@@ -16,7 +19,7 @@ docker run --rm -ti \
 	-v "$HOME/.bashrc:$HOME/.bashrc" \
 	-v "$HOME/.bash_profile:$HOME/.bash_profile" \
 	-v "$HOME:$HOME" \
-	-v $SSH_AUTH_SOCK:$SSH_AUTH_SOCK:ro \
+	-v "$HOME/go/linux-bin:$HOME/go/bin" \
 	-e USER=$USER \
 	-e HOME=$HOME \
 	-e SSH_AUTH_SOCK=$SSH_AUTH_SOCK \
@@ -29,3 +32,4 @@ docker run --rm -ti \
 
 #	-v "/mnt/linaro:/mnt/linaro" \
 #	-v "/mnt/zephyr:/mnt/zephyr" \
+#	-v $SSH_AUTH_SOCK:$SSH_AUTH_SOCK:ro \

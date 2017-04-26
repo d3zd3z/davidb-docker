@@ -20,9 +20,18 @@ RUN apt-get update && \
 		bzip2 \
 		xz-utils \
 		python-yaml \
+		python3-yaml \
 		cmake \
+		direnv \
 		libncurses5-dev \
 		python
+
+# Add golang to the devel image as well.  Make sure to get a recent
+# version.
+RUN apt-get install -y software-properties-common && \
+	add-apt-repository -y ppa:longsleep/golang-backports && \
+	apt-get update && \
+	apt-get install -y golang-go
 
 # Apt doesn't seem to be able to install this package together with
 # the above.
