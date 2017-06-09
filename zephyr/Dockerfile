@@ -45,10 +45,10 @@ RUN apt-get install -y software-properties-common && \
 # RUN mkdir -p /opt/cross
 
 RUN \
-	wget https://nexus.zephyrproject.org/content/repositories/releases/org/zephyrproject/zephyr-sdk/0.9/zephyr-sdk-0.9-setup.run && \
-	chmod 755 ./zephyr-sdk-0.9-setup.run && \
-	./zephyr-sdk-0.9-setup.run -- -d /opt/zephyr-sdk -y && \
-	rm zephyr-sdk-0.9-setup.run
+	wget https://github.com/zephyrproject-rtos/meta-zephyr-sdk/releases/download/0.9.1/zephyr-sdk-0.9.1-setup.run && \
+	chmod 755 ./zephyr-sdk-0.9.1-setup.run && \
+	./zephyr-sdk-0.9.1-setup.run -- -d /opt/zephyr-sdk -y && \
+	rm zephyr-sdk-0.9.1-setup.run
 
 # RUN cd /opt/cross && \
 # 	wget http://releases.linaro.org/14.06/components/toolchain/binaries/gcc-linaro-aarch64-linux-gnu-4.9-2014.06-02_linux.tar.xz && \
