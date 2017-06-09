@@ -19,8 +19,10 @@ RUN apt-get update && \
 		wget \
 		bzip2 \
 		xz-utils \
-		python-yaml \
 		python3-yaml \
+		python3-crypto \
+		python3-ecdsa \
+		python3-pyasn1 \
 		cmake \
 		direnv \
 		libncurses5-dev \
