@@ -14,12 +14,17 @@
 
 container=davidb/zephyr:latest
 
+# This needs to match the device the board shows up on.  TODO: figure
+# out how to discover this.
+usb=/dev/bus/usb/001/008
+
 docker run --rm -ti \
 	-v "$(pwd):$(pwd)" \
 	-v "$HOME/.bashrc:$HOME/.bashrc" \
 	-v "$HOME/.bash_profile:$HOME/.bash_profile" \
 	-v "$HOME:$HOME" \
 	-v "$HOME/go/linux-bin:$HOME/go/bin" \
+	-v "$HOME/.local-xenial:$HOME/.local" \
 	-e USER=$USER \
 	-e HOME=$HOME \
 	-e SSH_AUTH_SOCK=$SSH_AUTH_SOCK \
@@ -30,6 +35,8 @@ docker run --rm -ti \
 	bash -l \
         "$@"
 
+#	--device $usb \
+#	--privileged \
 #	-v "/mnt/linaro:/mnt/linaro" \
 #	-v "/mnt/zephyr:/mnt/zephyr" \
 #	-v $SSH_AUTH_SOCK:$SSH_AUTH_SOCK:ro \

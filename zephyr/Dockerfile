@@ -23,10 +23,12 @@ RUN apt-get update && \
 		python3-crypto \
 		python3-ecdsa \
 		python3-pyasn1 \
+		python3-pip \
 		cmake \
 		direnv \
 		libncurses5-dev \
-		python
+		python && \
+	pip3 install pyelftools
 
 # Add golang to the devel image as well.  Make sure to get a recent
 # version.
