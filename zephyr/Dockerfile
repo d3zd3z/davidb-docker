@@ -1,4 +1,4 @@
-FROM davidb/devel:ubuntu-16.04
+FROM davidb/devel:ubuntu-17.10
 MAINTAINER David Brown <david.brown@linaro.org>
 
 # Packages from
@@ -25,6 +25,8 @@ RUN apt-get update && \
 		python3-pyasn1 \
 		python3-pip \
 		cmake \
+		gperf \
+		ninja-build \
 		direnv \
 		libncurses5-dev \
 		python && \
@@ -32,10 +34,13 @@ RUN apt-get update && \
 
 # Add golang to the devel image as well.  Make sure to get a recent
 # version.
-RUN apt-get install -y software-properties-common && \
-	add-apt-repository -y ppa:longsleep/golang-backports && \
-	apt-get update && \
-	apt-get install -y golang-go
+# RUN apt-get install -y software-properties-common && \
+# 	add-apt-repository -y ppa:longsleep/golang-backports && \
+# 	apt-get update && \
+# 	apt-get install -y golang-go
+
+# With Ubuntu 17.10, the golang version is new enough.
+RUN apt-get install -y golang-go
 
 # Apt doesn't seem to be able to install this package together with
 # the above.
@@ -47,10 +52,10 @@ RUN apt-get install -y software-properties-common && \
 # RUN mkdir -p /opt/cross
 
 RUN \
-	wget https://github.com/zephyrproject-rtos/meta-zephyr-sdk/releases/download/0.9.1/zephyr-sdk-0.9.1-setup.run && \
-	chmod 755 ./zephyr-sdk-0.9.1-setup.run && \
-	./zephyr-sdk-0.9.1-setup.run -- -d /opt/zephyr-sdk -y && \
-	rm zephyr-sdk-0.9.1-setup.run
+	wget https://github.com/zephyrproject-rtos/meta-zephyr-sdk/releases/download/0.9.2/zephyr-sdk-0.9.2-setup.run && \
+	chmod 755 ./zephyr-sdk-0.9.2-setup.run && \
+	./zephyr-sdk-0.9.2-setup.run -- -d /opt/zephyr-sdk -y && \
+	rm zephyr-sdk-0.9.2-setup.run
 
 # RUN cd /opt/cross && \
 # 	wget http://releases.linaro.org/14.06/components/toolchain/binaries/gcc-linaro-aarch64-linux-gnu-4.9-2014.06-02_linux.tar.xz && \
