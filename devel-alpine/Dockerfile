@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.7
 MAINTAINER David Brown <david.brown@linaro.org>
 
 RUN apk update && \
