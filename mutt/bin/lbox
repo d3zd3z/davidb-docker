@@ -1,0 +1,24 @@
+#! /usr/bin/env python3
+
+import os.path
+import sys
+from subprocess import check_call
+
+# Invoke mutt nicely on the given folder.
+
+def main():
+    rc = os.path.expanduser("~/.mutt/linaro")
+    folder = '='
+
+    if len(sys.argv) >= 2:
+        folder = "=" + sys.argv[1]
+
+        if sys.argv[1] == "all":
+            folder = "=[Gmail]/All Mail"
+        elif sys.argv[1] == "starred":
+            folder = "=[Gmail]/Starred"
+
+    check_call(['mutt', "-F", rc, "-f", folder])
+
+if __name__ == '__main__':
+    main()
