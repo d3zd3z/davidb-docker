@@ -18,6 +18,7 @@ docker run --rm -ti \
 	-v $SSH_AUTH_SOCK:$SSH_AUTH_SOCK:ro \
 	-e USER=$USER \
 	-e HOME=$HOME \
+	-e EDITOR=/usr/bin/vim \
 	-e SSH_AUTH_SOCK=$SSH_AUTH_SOCK \
         -e UID=$(id -u) \
         -e GID=$(id -g) \
