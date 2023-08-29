@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 # Start the 'asme' container to run as the current user in the current
 # directory.
@@ -25,6 +25,7 @@ docker run --rm -ti \
 	-v "$HOME:$HOME" \
 	-v "$HOME/go/linux-bin:$HOME/go/bin" \
 	-v "$HOME/.local-xenial:$HOME/.local" \
+	-v "$HOME/.cargo:$HOME/.cargo" \
 	-e USER=$USER \
 	-e HOME=$HOME \
 	-e SSH_AUTH_SOCK=$SSH_AUTH_SOCK \
